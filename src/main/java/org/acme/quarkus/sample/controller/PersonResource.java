@@ -1,4 +1,4 @@
-package org.acme.quarkus.sample;
+package org.acme.quarkus.sample.controller;
 
 import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 

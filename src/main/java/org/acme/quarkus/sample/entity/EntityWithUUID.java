@@ -1,5 +1,7 @@
 package org.acme.quarkus.sample.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.Id;
@@ -16,6 +18,8 @@ import java.util.UUID;
  * Time: 10.13
  */
 @MappedSuperclass
+@Data
+@AllArgsConstructor
 public class EntityWithUUID {
     @Id
     @Type(type = "pg-uuid")
