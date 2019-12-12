@@ -44,7 +44,7 @@ public class PersonResource {
             return Response.ok(persons).build();
         }
 
-        return Response.status(Response.Status.NOT_FOUND).entity("person não encontrada").build();
+        return Response.status(Response.Status.NOT_FOUND).entity("person not found").build();
     }
 
     @DELETE
@@ -59,7 +59,7 @@ public class PersonResource {
             return Response.ok(persons).build();
         }
 
-        return Response.status(Response.Status.NOT_FOUND).entity("person não encontrada").build();
+        return Response.status(Response.Status.NOT_FOUND).entity("person not found").build();
     }
 
     @GET
@@ -69,7 +69,7 @@ public class PersonResource {
 
         Optional<String> first = persons.stream().filter(person -> person.equals(name)).findFirst();
 
-        return first.isPresent() ? Response.ok(first.get()).build() : Response.status(Response.Status.NOT_FOUND).entity("person não encontrada").build();
+        return first.isPresent() ? Response.ok(first.get()).build() : Response.status(Response.Status.NOT_FOUND).entity("person not found").build();
     }
 
     @GET
