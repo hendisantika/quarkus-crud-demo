@@ -1,9 +1,13 @@
 package org.acme.quarkus.sample.controller;
 
+import io.quarkus.vertx.web.Route;
 import io.quarkus.vertx.web.RouteBase;
+import org.acme.quarkus.sample.model.Greeting;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.enterprise.context.ApplicationScoped;
+
+import static io.quarkus.vertx.web.Route.HttpMethod.GET;
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,4 +23,8 @@ import javax.enterprise.context.ApplicationScoped;
 @RouteBase(path = "/vertx", produces = "application/json")
 @Tag(name = "Vert.x Resource", description = "Basic Hello World using Vert.x")
 public class VertxGreeting {
+    @Route(path = "/hello", methods = GET)
+    public Greeting helloVertX() {
+        return new Greeting("Hello", "Vert.x");
+    }
 }
