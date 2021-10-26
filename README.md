@@ -22,4 +22,10 @@ mvn compile quarkus:dev
 ## Accessing
 
 - Application will be accessible on http://localhost:8080
-- Swagger UI will be accessible on http://localhost:8080/swagger-ui
+- Swagger UI will be accessible on http://localhost:8080/q/swagger-ui
+
+## Image Screen Shot
+
+Swagger UI
+
+![Swagger UI](img/ACME%20API.png "Swagger UI")
