@@ -1,5 +1,6 @@
 package org.acme.quarkus.sample.controller;
 
+import io.quarkus.vertx.web.Body;
 import io.quarkus.vertx.web.Route;
 import io.quarkus.vertx.web.RouteBase;
 import org.acme.quarkus.sample.model.Greeting;
@@ -8,6 +9,7 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import javax.enterprise.context.ApplicationScoped;
 
 import static io.quarkus.vertx.web.Route.HttpMethod.GET;
+import static io.quarkus.vertx.web.Route.HttpMethod.POST;
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,5 +28,10 @@ public class VertxGreeting {
     @Route(path = "/hello", methods = GET)
     public Greeting helloVertX() {
         return new Greeting("Hello", "Vert.x");
+    }
+
+    @Route(path = "/hello", methods = POST)
+    public Greeting newHelloVertX(@Body Greeting greeting) {
+        return greeting;
     }
 }
