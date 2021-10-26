@@ -1,7 +1,5 @@
 package org.acme.quarkus.sample.controller;
 
-import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
-
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -69,12 +67,13 @@ public class PersonResource {
 
         Optional<String> first = persons.stream().filter(person -> person.equals(name)).findFirst();
 
-        return first.isPresent() ? Response.ok(first.get()).build() : Response.status(Response.Status.NOT_FOUND).entity("person not found").build();
+        return first.isPresent() ? Response.ok(first.get()).build() :
+                Response.status(Response.Status.NOT_FOUND).entity("person not found").build();
     }
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public Response find(@Parameter(name = "name", required = false) @QueryParam("name") String name) {
+    public Response find(@QueryParam("name") String name) {
 
         if (name != null && !name.isEmpty()) {
             return findByName(name);
