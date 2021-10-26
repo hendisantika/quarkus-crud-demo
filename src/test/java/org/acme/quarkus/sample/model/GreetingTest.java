@@ -27,4 +27,13 @@ public class GreetingTest {
                 .body(containsString("Hello"), containsString("JAX-RS"));
     }
 
+    @Test
+    public void testSpringEndpoint() {
+        given()
+                .when().get("/spring/hello")
+                .then()
+                .statusCode(200)
+                .body(containsString("Hello"), containsString("Spring"));
+    }
+
 }
