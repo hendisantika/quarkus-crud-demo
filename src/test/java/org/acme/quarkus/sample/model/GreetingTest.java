@@ -46,4 +46,13 @@ public class GreetingTest {
                 .body(containsString("Hello"), containsString("Vert.x"));
     }
 
+    @Test
+    public void testOtherEndpoint() {
+        given()
+                .when().get("/other/hello")
+                .then()
+                .statusCode(200)
+                .body(containsString("Hello"), containsString("Other"));
+    }
+
 }
