@@ -44,4 +44,10 @@ public class ServletGreeting extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.print(JSONB.toJson(greeting));
     }
+
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+
+    }
 }
