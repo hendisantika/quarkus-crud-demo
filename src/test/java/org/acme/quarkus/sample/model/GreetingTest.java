@@ -1,6 +1,10 @@
 package org.acme.quarkus.sample.model;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.Test;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.containsString;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,6 +18,13 @@ import io.quarkus.test.junit.QuarkusTest;
  */
 @QuarkusTest
 public class GreetingTest {
-
+    @Test
+    public void testJaxRsEndpoint() {
+        given()
+                .when().get("/jax-rs/hello")
+                .then()
+                .statusCode(200)
+                .body(containsString("Hello"), containsString("JAX-RS"));
+    }
 
 }
