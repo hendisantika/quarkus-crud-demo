@@ -35,4 +35,13 @@ public class ServletGreeting extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.print(JSONB.toJson(greeting));
     }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        response.setContentType("application/json");
+        Greeting greeting = JSONB.fromJson(request.getInputStream(), Greeting.class);
+        PrintWriter out = response.getWriter();
+        out.print(JSONB.toJson(greeting));
+    }
 }
