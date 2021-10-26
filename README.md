@@ -29,3 +29,5 @@ mvn compile quarkus:dev
 Swagger UI
 
 ![Swagger UI](img/ACME%20API.png "Swagger UI")
+
+![Logo](img/logos.png "Logos")
